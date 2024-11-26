@@ -62,7 +62,17 @@ def compras_usuario_por_id(id: int, id_compra: int):
     }
 
     return compra
-
+# Compra
+@app.get("/compras/{id}")
+def compra_por_id(id:int,sesion:Session=Depends(generador_sesion)):
+    print("Api consultando compra por id")
+    return repo.compra_por_id(sesion, id)
+#foto 
+@app.get("/foto/{id}")
+def compra_por_id(id:int,sesion:Session=Depends(generador_sesion)):
+    print("Api consultando foto po id")
+    return repo.foto_por_id(sesion, id)
+#usuario
 @app.get("/usuarios/{id}")
 def usuario_por_id(id:int,sesion:Session=Depends(generador_sesion)):
     print("Api consultando usuario por id")
